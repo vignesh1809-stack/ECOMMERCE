@@ -1,0 +1,11 @@
+services:
+  ecommerce:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bluez-luxoria-app
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
