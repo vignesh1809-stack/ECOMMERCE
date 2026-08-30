@@ -28,7 +28,7 @@ import type { Order } from '../../types';
 
 export const CheckoutPage: React.FC = () => {
   const { setCheckoutOpen, formatPrice, setOrderSuccess } = useUI();
-  const { items, subtotal, shipping, tax, discount, total, updateQuantity, removeItem, clearCart } = useCart();
+  const { items, subtotal, shipping, tax, discount, total, updateQuantity, removeFromCart, clearCart } = useCart();
 
   // Active Step: 1 (Account), 2 (Address), 3 (Review), 4 (Payment)
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(2);
@@ -671,7 +671,7 @@ export const CheckoutPage: React.FC = () => {
                             </div>
                             <button 
                               className="luxury-remove-action"
-                              onClick={() => removeItem(item.product.id, item.selectedColor, item.selectedSize)}
+                              onClick={() => removeFromCart(item.product.id, item.selectedColor, item.selectedSize)}
                             >
                               Remove
                             </button>

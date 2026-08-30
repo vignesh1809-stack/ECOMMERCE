@@ -24,7 +24,7 @@ import type { Order } from '../../types';
 
 export const CashfreeCheckoutModal: React.FC = () => {
   const { isCheckoutOpen, setCheckoutOpen, formatPrice, setOrderSuccess } = useUI();
-  const { items, subtotal, shipping, tax, discount, total, updateQuantity, removeItem, clearCart } = useCart();
+  const { items, subtotal, shipping, tax, discount, total, updateQuantity, removeFromCart, clearCart } = useCart();
 
   // Active Flipkart Step: 1 (Login), 2 (Address), 3 (Order Summary), 4 (Payment)
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(2);
@@ -546,8 +546,8 @@ export const CashfreeCheckoutModal: React.FC = () => {
                                 </button>
                               </div>
                               <button 
-                                className="fk-remove-link"
-                                onClick={() => removeItem(item.product.id, item.selectedColor, item.selectedSize)}
+                                className="fk-remove-btn"
+                                onClick={() => removeFromCart(item.product.id, item.selectedColor, item.selectedSize)}
                               >
                                 REMOVE
                               </button>
